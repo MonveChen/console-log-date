@@ -1,0 +1,52 @@
+{
+  "name": "console-log-date",
+  "version": "1.0.1",
+  "description": "console.log/.info/.error/.warn with date string",
+  "main": "dist/index.js",
+  "types": "dist/index.d.ts",
+  "files": [
+    "dist",
+    "README.md",
+    "LICENSE",
+    "package.json"
+  ],
+  "scripts": {
+    "build": "rm -rf ./dist && ./node_modules/.bin/tsc",
+    "prepare": "husky install",
+    "link": "npm run build && npm link",
+    "publish_to_npm": "npm run build && npm publish --access=public && npm run sync_taobao && sync_taobao_by_web",
+    "sync_taobao": "cnpm sync $npm_package_name",
+    "sync_taobao_by_web": "open https://npmmirror.com/sync/$npm_package_name"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/MonveChen/console-log-date.git"
+  },
+  "keywords": [
+    "console",
+    "console.log",
+    "console.log/.info/.error/.warn",
+    "date",
+    "time",
+    "string"
+  ],
+  "author": "Monve",
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/MonveChen/console-log-date/issues"
+  },
+  "homepage": "https://github.com/MonveChen/console-log-date#readme",
+  "dependencies": {},
+  "devDependencies": {
+    "@types/node": "^16.11.25",
+    "@typescript-eslint/eslint-plugin": "^5.12.1",
+    "@typescript-eslint/parser": "^5.12.1",
+    "eslint": "^7.32.0",
+    "eslint-config-airbnb-base": "^14.2.1",
+    "eslint-import-resolver-alias": "^1.1.2",
+    "eslint-plugin-import": "^2.24.0",
+    "husky": "^7.0.4",
+    "ts-node": "^10.2.0",
+    "typescript": "^4.3.5"
+  }
+}
