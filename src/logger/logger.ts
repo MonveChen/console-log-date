@@ -2,14 +2,18 @@
  * @Author: Monve
  * @Date: 2022-05-16 11:17:59
  * @LastEditors: Monve
- * @LastEditTime: 2022-06-06 17:47:11
+ * @LastEditTime: 2022-07-15 19:03:07
  * @FilePath: /console-log-date/src/logger/logger.ts
  */
 function convert(value: any[]) {
   const str = value.map(val => {
     if (typeof val === 'object') {
       try {
-        return `${Object.prototype.toString.call(val)}${JSON.stringify(val)}`
+        const obj_type = Object.prototype.toString.call(val)
+        if (obj_type === '[object Error]') {
+          return `${val.message} ${val.stack}`
+        }
+        return `${obj_type}${JSON.stringify(val)}`;
       } catch (error) {
         return val
       }

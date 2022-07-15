@@ -1,6 +1,6 @@
 {
   "name": "console-log-date",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "console.log/.info/.error/.warn with date string",
   "main": "dist/index.js",
   "types": "dist/index.d.ts",
